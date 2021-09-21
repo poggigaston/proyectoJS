@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Animate.css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- GoogleFont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome  -->
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>AlarmasFamiliaSegura</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container-fluid">  
+        <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <span id="colortitulo" class="fs-5 text-light fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/index.html">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="html/panelesyteclado.html">Paneles y Teclados</a></li>
+                    <li><a class="dropdown-item" href="html/comunicadores.html">Comunicadores</a></li>
+                    <li><a class="dropdown-item" href="html/sensores.html">Sensores</a></li>
+                    <li><a class="dropdown-item" href="html/sirenas.html">Sirenas</a></li>
+                </ul>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="html/Nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="html/contacto.html">Contacto</a>
+                </li>
+              </ul>
+              
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </header>  
+
+      
+    <div id="letras" class="container-fluid" ><p>Dale a tu casa <br> la seguridad que <br>tu familia necesita </p></div>
+    <img src="images/flia3.jpeg" class="img-fluid" alt="flia3">
+
+    <!-- Boton modal -->
+
+    <div class="container-fluid text-center bg-secondary p-4">
+      <button type="button" class="btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">      Carrito     <i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+            <div id="listado" ></div>
+            <div> Total: $<span id="precioTotal" >0</span> </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+            <button type="button" class="btn btn-danger" id="vaciar" onclick="vaciar()">Vaciar Carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+    
+    
+    <div id="contenedorinicio"></div>
+    
+    <div id="footer" class="container-fluid" >
+      <footer>
+
+        <ul id="social" >
+          <li><a href="#"><img id="idwhat" src="icons/what.png" height="50px" ></img></a></li>
+          <li><a href="#"><img id="idface" src="icons/face.png" height="50px" ></img></a></li>
+          <li><a href="#"><img id="idinsta" src="icons/insta.png" height="50px" ></img></a></li>         
+        </ul>
+        
+      </footer>   
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/stock.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/inicio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+  </body>
+  
+</html>
