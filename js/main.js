@@ -20,12 +20,28 @@ function carga(number) {
     let itemEnCarrito = carrito.find( (el) => el.item == number );
 
     if (itemEnCarrito) {
-        itemEnCarrito.cantidad +=1
-        alert("El producto "+ itemEnCarrito.nombre + " se agrego correctamante al carrito")
+        itemEnCarrito.cantidad +=1        
+        Swal.fire({
+            position: 'top-end',
+            imageUrl:  "/"+ itemEnCarrito.img,
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            title: "El producto "+ itemEnCarrito.nombre + " se agrego nuevamente al carrito",
+            showConfirmButton: false,
+            timer: 3500
+        })
     } else {
         let filtrado = productos.find( (el) => el.item == number );
-        carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, cantidad: 1});
-        alert("El producto "+ filtrado.nombre + " se agrego correctamante al carrito")
+        carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, img: filtrado.img, cantidad: 1});
+        Swal.fire({
+            title: 'Genial!',
+            text: "El producto "+ filtrado.nombre + " se agrego correctamente al carrito",
+            imageUrl: "/"+ filtrado.img,
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+        })
     }
            
     let contenedor = document.createElement("div")
@@ -33,10 +49,9 @@ function carga(number) {
 
     sumar()
     actualizar()
-    const convertido = JSON.stringify(carrito)
-    localStorage.setItem("carrito", convertido)
-    const convertido2 = JSON.stringify(productos)
-    localStorage.setItem("productos", convertido2)
+    
+    // const convertido2 = JSON.stringify(productos)
+    // localStorage.setItem("productos", convertido2)
 } 
 
 
@@ -47,13 +62,7 @@ function carga(number) {
     let filtrado = carrito.find( (el) => el.item == prod )
     let indice = carrito.indexOf( filtrado )
     if (indice !== -1) {
-        carrito.splice(indice,1)        
-        
-        const convertido = JSON.stringify(carrito)
-        localStorage.setItem("carrito", convertido)
-        const convertido2 = JSON.stringify(productos)
-        localStorage.setItem("productos", convertido2)
-          
+        carrito.splice(indice,1)         
     }
     actualizar()  
     
@@ -88,8 +97,12 @@ function actualizar () {
     precioTotal.innerText = carrito.reduce( (acc, el) => acc + (el.precio * el.cantidad), 0 )
 
     let contadorCarrito =  document.getElementById(`contadorCarrito`)
-    contadorCarrito.innerText = carrito.length 
 
+    contadorCarrito.innerText = carrito.length 
+    const convertido = JSON.stringify(carrito)
+    localStorage.setItem("carrito", convertido)
+    // const convertido2 = JSON.stringify(productos)
+    // localStorage.setItem("productos", convertido2)
 }
 
 // Vaciar carrito
