@@ -54,26 +54,28 @@ function carga(number) {
     // localStorage.setItem("productos", convertido2)
 } 
 
-
-
 // Sacar elemento al carrito
 
  function descarga (prod) {
-    let filtrado = carrito.find( (el) => el.item == prod )
-    let indice = carrito.indexOf( filtrado )
-    if (indice !== -1) {
-        carrito.splice(indice,1)         
-    }
-    actualizar()  
-    
+    let productoAEliminar = carrito.find( el => el.item == prod )
+    productoAEliminar.cantidad--
+
+    if (productoAEliminar.cantidad == 0){
+        let filtrado = carrito.find( (el) => el.item == prod )
+        let indice = carrito.indexOf( filtrado )
+        if (indice !== -1) {
+            carrito.splice(indice,1)         
+        }
+    }    
+    actualizar()    
 } 
 
 // Para sumar el total de los elementos del carrito
+
 function sumar(){
     carrito.forEach ( (el) => {
         precioTotal += el.precio * el.cantidad
-    })   
-    
+    })    
 }
          
 
@@ -117,8 +119,7 @@ function vaciar (){
         actualizar()
         const convertido = JSON.stringify(carrito)
         localStorage.setItem("carrito", convertido)
-    }
-                
+    }                
     actualizar()
 }
 actualizar()
