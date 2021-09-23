@@ -1,7 +1,6 @@
 // Carrito
-document.getElementById("boton") ;
-document.getElementById("precio") ;
 
+document.getElementById("boton") ;
 
 let carrito = []
 
@@ -16,16 +15,21 @@ if (carritoEnLS !== null) {
 // Cargar elemento al carrito
 
 
-const carga = function(number) {
+function carga(number) {
        
-    const filtrado = productos.find( (el) => el.item == number );
-        
-    carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, cantidad: 1});
-    console.log(carrito);
-    alert("El producto "+ filtrado.nombre + " se agrego correctamante al carrito");
-    
+    let itemEnCarrito = carrito.find( (el) => el.item == number );
+
+    if (itemEnCarrito) {
+        itemEnCarrito.cantidad +=1
+        alert("El producto "+ itemEnCarrito.nombre + " se agrego correctamante al carrito")
+    } else {
+        let filtrado = productos.find( (el) => el.item == number );
+        carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, cantidad: 1});
+        alert("El producto "+ filtrado.nombre + " se agrego correctamante al carrito")
+    }
+           
     let contenedor = document.createElement("div")
-    contenedor.innerHTML = `<h6>Total: $<span id=${"precioTotal"}></span> </h6>`
+    contenedor.innerHTML = `<h6>Total: $<span id=${"precioTotal"}>0</span> </h6>`
 
     sumar()
     actualizar()
@@ -35,13 +39,16 @@ const carga = function(number) {
     localStorage.setItem("productos", convertido2)
 } 
 
+
+
 // Sacar elemento al carrito
 
-const descarga = function(prod) {
-    let filtrado = carrito.find( (el) => el.item === prod )
+ function descarga (prod) {
+    let filtrado = carrito.find( (el) => el.item == prod )
     let indice = carrito.indexOf( filtrado )
     if (indice !== -1) {
         carrito.splice(indice,1)        
+        
         const convertido = JSON.stringify(carrito)
         localStorage.setItem("carrito", convertido)
         const convertido2 = JSON.stringify(productos)
@@ -66,23 +73,22 @@ function sumar(){
 function actualizar () {    
     let listado = document.getElementById(`listado`)
     listado.innerHTML = ` `
-    
-    
+        
     carrito.forEach ((producto) => {
         const div = document.createElement('div')        
         
         div.innerHTML = ` <p id="fade" >${producto.nombre} Valor $${producto.precio} Cantidad ${producto.cantidad}    <button onclick=descarga(${producto.item}) class="boton-eliminar" ><i class="fas fa-trash-alt"></i></button></p>`;
         
-        
-        listado.appendChild(div);
-        let precioTotal = document.getElementById('precioTotal')
-        precioTotal.innerText = carrito.reduce( (acc, el) => acc + (el.precio * el.cantidad), 0 )
-        
+        listado.appendChild(div);       
     })
+
     sumar()
-    
+
+    let precioTotal = document.getElementById('precioTotal')
+    precioTotal.innerText = carrito.reduce( (acc, el) => acc + (el.precio * el.cantidad), 0 )
+
     let contadorCarrito =  document.getElementById(`contadorCarrito`)
-    contadorCarrito.innerText = carrito.length
+    contadorCarrito.innerText = carrito.length 
 
 }
 
@@ -99,17 +105,11 @@ function vaciar (){
         const convertido = JSON.stringify(carrito)
         localStorage.setItem("carrito", convertido)
     }
-    carrito.forEach ((producto) => {
-        const div = document.createElement('div')        
-
-    })
-    // div.innerHTML = ` `;
-
-    // listado.appendChild(div);    
+                
     actualizar()
 }
 actualizar()
-// Efectos en las fotos con Jquery
+
 // Logos redes sociales
 
 $('#idwhat').mouseenter (function () {

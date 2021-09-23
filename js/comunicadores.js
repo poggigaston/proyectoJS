@@ -37,8 +37,7 @@ $.get("/js/datos.json", (response) => {
 comunicadores.forEach( (producto) => {
     const div = document.createElement('div')
     div.classList.add('col')
-    // div.className = "productos"
-    
+        
     div.innerHTML = `        
         <div class="container-fluid p-5">
             <div class="card" style="width: 18rem;">
