@@ -1,3 +1,11 @@
+let productos = []
+$.get("/js/datos.json", (response) => {
+
+    productos = response
+    console.log(productos)
+})
+
+
 // Carrito
 
 document.getElementById("boton") ;
@@ -16,11 +24,10 @@ if (carritoEnLS !== null) {
 
 
 function carga(number) {
-       
     let itemEnCarrito = carrito.find( (el) => el.item == number );
 
     if (itemEnCarrito) {
-        itemEnCarrito.cantidad +=1        
+        itemEnCarrito.cantidad +=1              
         Swal.fire({
             position: 'top-end',
             imageUrl:  "/"+ itemEnCarrito.img,
@@ -32,7 +39,7 @@ function carga(number) {
             timer: 3500
         })
     } else {
-        let filtrado = productos.find( (el) => el.item == number );
+        let filtrado = productos.find( (el) => el.item == number );        
         carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, img: filtrado.img, cantidad: 1});
         Swal.fire({
             title: 'Genial!',
@@ -100,7 +107,7 @@ function actualizar () {
 
     let contadorCarrito =  document.getElementById(`contadorCarrito`)
 
-    contadorCarrito.innerText = carrito.length 
+    contadorCarrito.innerText = carrito.length
     const convertido = JSON.stringify(carrito)
     localStorage.setItem("carrito", convertido)
     // const convertido2 = JSON.stringify(productos)
