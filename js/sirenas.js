@@ -80,4 +80,4 @@ $('#idinsta').mouseleave (function () {
 $(`#footer`).css(
     "display", "none"
 )
-$(`#footer`).fadeIn(4000)
+$(`#footer`).fadeIn(3000)

@@ -1,8 +1,7 @@
-// let productos = []
-$.get("/js/datos.json", (response) => {
+// Traigo productos desde json
 
-    productos = response
-    console.log(productos)
+$.get("/js/datos.json", (response) => {
+    productos = response    
 })
 
 
@@ -49,21 +48,15 @@ function carga(number) {
             imageHeight: 200,
             imageAlt: 'Custom image',
         })
-    }
-           
-    // let contenedor = document.createElement("div")
-    // contenedor.innerHTML = `<h4>Total: $<span id=${"precioTotal"}>0</span> </h4>`
-
-    sumar()
-    actualizar()
+    }          
     
-    // const convertido2 = JSON.stringify(productos)
-    // localStorage.setItem("productos", convertido2)
+    sumar()
+    actualizar()    
 } 
 
 // Sacar elemento al carrito
 
- function descarga (prod) {
+function descarga (prod) {
     let productoAEliminar = carrito.find( el => el.item == prod )
     productoAEliminar.cantidad--
 
@@ -86,7 +79,7 @@ function sumar(){
 }
          
 
-// actualizar()
+// Actualizar
 
 function actualizar () {    
     let listado = document.getElementById(`listado`)
@@ -119,9 +112,7 @@ function actualizar () {
 
     contadorCarrito.innerText = carrito.length
     const convertido = JSON.stringify(carrito)
-    localStorage.setItem("carrito", convertido)
-    // const convertido2 = JSON.stringify(productos)
-    // localStorage.setItem("productos", convertido2)
+    localStorage.setItem("carrito", convertido)    
 }
 
 // Vaciar carrito
@@ -164,15 +155,69 @@ $('#idinsta').mouseleave (function () {
     $("#idinsta").removeClass("animate__animated animate__rubberBand") 
 })
 
+// Buscador
 
 $('#btn-buscar').on('click', () => {
     const busqueda = $('#input-busqueda').val()
-    console.log(busqueda)
+    const busquedaMinuscula = busqueda.toLowerCase()
+    
+    switch (busquedaMinuscula) {
+        case "comunicador":
+            window.location.href="comunicadores.html"
+        break;
+
+        case "comunicadores":
+            window.location.href="comunicadores.html"
+        break;
+
+        case "paneles":
+            window.location.href="panelesyteclado.html"
+        break;
+
+        case "panel":
+            window.location.href="panelesyteclado.html"
+        break;
+
+        case "teclados":
+            window.location.href="panelesyteclado.html"
+        break;
+
+        case "teclado":
+            window.location.href="panelesyteclado.html"
+        break;
+
+        case "paneles y teclados":
+            window.location.href="panelesyteclado.html"
+        break;
+
+        case "sensores":
+            window.location.href="sensores.html"
+        break;
+
+        case "sensor":
+            window.location.href="sensores.html"
+        break;
+
+        case "sirenas":
+            window.location.href="sirenas.html"
+        break;
+
+        case "sirena":
+            window.location.href="sirenas.html"
+        break;
+
+    default:
+        busqueda != "comunicador", "comunicadores", "paneles y teclados", "paneles", "panel", "teclados" ,"teclado" ,"sirenas" ,"sensores"
+            alert("No ingresaste una categoria válida, chau")
+        break;    
+
+    }
 })
 
+// Enter para buscar
 
-
-
-
-
-
+$("#input-busqueda").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#btn-buscar").click();
+    }
+});
