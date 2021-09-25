@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    $('#exampleFormControlInput1').trigger('focus')
+    $('#miForm').trigger('focus')
 })
 
 

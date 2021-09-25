@@ -1,4 +1,4 @@
-let productos = []
+// let productos = []
 $.get("/js/datos.json", (response) => {
 
     productos = response
@@ -51,8 +51,8 @@ function carga(number) {
         })
     }
            
-    let contenedor = document.createElement("div")
-    contenedor.innerHTML = `<h6>Total: $<span id=${"precioTotal"}>0</span> </h6>`
+    // let contenedor = document.createElement("div")
+    // contenedor.innerHTML = `<h4>Total: $<span id=${"precioTotal"}>0</span> </h4>`
 
     sumar()
     actualizar()
@@ -93,11 +93,21 @@ function actualizar () {
     listado.innerHTML = ` `
         
     carrito.forEach ((producto) => {
-        const div = document.createElement('div')        
+        // const div = document.createElement('div')        
         
-        div.innerHTML = ` <p id="fade" >${producto.nombre} Valor $${producto.precio} Cantidad ${producto.cantidad}    <button onclick=descarga(${producto.item}) class="boton-eliminar" ><i class="fas fa-trash-alt"></i></button></p>`;
+        // div.innerHTML = ` <p id="fade" >${producto.nombre} Valor $${producto.precio} Cantidad ${producto.cantidad}    <button onclick=descarga(${producto.item}) class="boton-eliminar" ><i class="fas fa-trash-alt"></i></button></p>`;
+
+        const tr = document.createElement('tr')
+        tr.className = "table"
+        tr.innerHTML = `
+            <th scope="row">${producto.item}</th>
+            <td>${producto.nombre}</td>
+            <td>${producto.cantidad}   <button onclick=descarga(${producto.item}) class="boton-eliminar" ><i class="fas fa-trash-alt"></i></button></td>
+            <td>$${producto.precio}</td>
+            
+        `
         
-        listado.appendChild(div);       
+        listado.appendChild(tr);       
     })
 
     sumar()
@@ -155,7 +165,10 @@ $('#idinsta').mouseleave (function () {
 })
 
 
-
+$('#btn-buscar').on('click', () => {
+    const busqueda = $('#input-busqueda').val()
+    console.log(busqueda)
+})
 
 
 

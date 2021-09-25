@@ -46,10 +46,10 @@
               <li class="nav-item"><a class="nav-link" href="#seccion-contacto">Contacto</a></li>
 
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscador de categorias" aria-label="Search">
-              <button class="btn btn-outline-primary" type="submit">Buscar</button>
-            </form>
+            <div class="d-flex">
+              <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Buscador de categorias" aria-label="Search">
+            <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
+            </div>
             
           </div>
 
@@ -57,20 +57,7 @@
       </nav>
 
     </header>
-
-    <!-- <div id="botonesgris" class="container-fluid " >
-        <div class="row p-4 text-center bg-secondary">
            
-            <div class="col-4"><a href="panelesyteclado.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Paneles y Teclados</button></a>
-            </div>
-            <div class="col-4"><a href="comunicadores.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Comunicadores</button></a>
-            </div>
-            <div class="col-4"><a href="sirenas.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Sirenas</button></a>
-            </div>
-
-        </div>
-    </div> -->
-       
     <!-- Boton modal -->
 
     <div class="container-fluid text-center bg-secondary p-4">
@@ -91,6 +78,7 @@
             <div> Total: $<span id="precioTotal" >0</span> </div>
           </div>
           <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="terminar" data-bs-dismiss="modal">Terminar la compra</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
             <button type="button" class="btn btn-danger" id="vaciar" onclick="vaciar()">Vaciar Carrito</button>
           </div>
