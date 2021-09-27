@@ -71,26 +71,26 @@ $.get("/js/datos.json", (response) => {
 
 // Creacion de items 
 
-panelesyteclados.forEach( (producto) => {
-    const div = document.createElement('div')
-    div.classList.add('col')
+// panelesyteclados.forEach( (producto) => {
+//     const div = document.createElement('div')
+//     div.classList.add('col')
         
-    div.innerHTML = `        
-        <div class="container-fluid p-5 ">
-            <div class="card" style="width: 18rem;">
-                <img src="${producto.img}" class="img-fluid" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">${producto.desc}<br><div id="precio" class="h2">$${producto.precio}</div><br><div class="h6">(Stock: ${producto.stock})</div></p>
-                    <a  class="btn btn-success" id="boton" onclick="carga(${producto.item})">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>`;
+//     div.innerHTML = `        
+//         <div class="container-fluid p-5 ">
+//             <div class="card" style="width: 18rem;">
+//                 <img src="${producto.img}" class="img-fluid" alt="...">
+//                 <div class="card-body">
+//                     <h5 class="card-title">${producto.nombre}</h5>
+//                     <p class="card-text">${producto.desc}<br><div id="precio" class="h2">$${producto.precio}</div><br><div class="h6">(Stock: ${producto.stock})</div></p>
+//                     <a  class="btn btn-success" id="boton" onclick="carga(${producto.item})">Agregar al carrito</a>
+//                 </div>
+//             </div>
+//         </div>`;
     
-    paneles.appendChild(div);
+//     paneles.appendChild(div);
 
     
-})
+// })
 
 $('#idwhat').mouseenter (function () {
     $("#idwhat").addClass("animate__animated animate__rubberBand") 
@@ -118,3 +118,48 @@ $(`#footer`).css(
 )
 $(`#footer`).fadeIn(4000)
     
+// buscador de productos
+
+const busqueda = document.getElementById("input-busqueda")
+const resultado = document.getElementById("resultado")
+const boton = document.getElementById("btn-buscar")
+
+const buscar = () => {
+    resultado.innerHTML = ``
+    // contenerdorcomu.innerHTML = ``
+    const texto = busqueda.value.toLowerCase()
+    for (let producto of panelesyteclados){
+        let nombre = producto.nombre.toLowerCase()
+        if (nombre.indexOf(texto) !== -1){
+            const div = document.createElement('div')
+            div.classList.add('col')
+        
+            div.innerHTML = `        
+                <div class="container-fluid p-5">
+                    <div class="card" style="width: 18rem;">
+                    <img src="${producto.img}" class="img-fluid" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">${producto.desc}<br><div class="h2">$${producto.precio}</div><br><div class="h6">(Stock: ${producto.stock})</div></p>
+                        <a  class="btn btn-success" id="boton" onclick="carga(${producto.item})">Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>`;
+    
+        resultado.appendChild(div);
+        }
+    }
+    if(resultado.innerHTML ===``){
+        resultado.innerHTML += ` <div><h3>Producto no encontrado</h3></div>`       
+    }
+}
+
+$('#btn-buscar').on('click', buscar)
+
+$("#input-busqueda").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#btn-buscar").click();
+    }
+});
+
+buscar()

@@ -1,3 +1,7 @@
+$.get("/js/datos.json", (response) => {
+    productos = response    
+})
+
 const inicio = [
     {   id: "panytec",
         link: "html/panelesyteclado.html",
@@ -109,55 +113,56 @@ $('#letras').animate({
         "font-size": "50px"
     }, 2000)
 
-    // Buscador
+// Buscador
 
-$('#btn-buscar').on('click', () => {
+$('#btn-buscar').on('click', () => {    
+
     const busqueda = $('#input-busqueda').val()
     const busquedaMinuscula = busqueda.toLowerCase()
     
     switch (busquedaMinuscula) {
         case "comunicador":
-            window.location.href="/html/comunicadores.html"
+            window.location.href="comunicadores.html"
         break;
 
         case "comunicadores":
-            window.location.href="/html/comunicadores.html"
+            window.location.href="comunicadores.html"
         break;
 
         case "paneles":
-            window.location.href="/html/panelesyteclado.html"
+            window.location.href="panelesyteclado.html"
         break;
 
         case "panel":
-            window.location.href="/html/panelesyteclado.html"
+            window.location.href="panelesyteclado.html"
         break;
 
         case "teclados":
-            window.location.href="/html/panelesyteclado.html"
+            window.location.href="panelesyteclado.html"
         break;
 
         case "teclado":
-            window.location.href="/html/panelesyteclado.html"
+            window.location.href="panelesyteclado.html"
         break;
 
         case "paneles y teclados":
-            window.location.href="/html/panelesyteclado.html"
+            window.location.href="panelesyteclado.html"
         break;
 
         case "sensores":
-            window.location.href="/html/sensores.html"
+            window.location.href="sensores.html"
         break;
 
         case "sensor":
-            window.location.href="/html/sensores.html"
+            window.location.href="sensores.html"
         break;
 
         case "sirenas":
-            window.location.href="/html/sirenas.html"
+            window.location.href="sirenas.html"
         break;
 
         case "sirena":
-            window.location.href="/html/sirenas.html"
+            window.location.href="sirenas.html"
         break;
 
     default:
@@ -167,7 +172,6 @@ $('#btn-buscar').on('click', () => {
 
     }
 })
-
 // Enter para buscar
 
 $("#input-busqueda").keyup(function(event) {
