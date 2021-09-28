@@ -8,18 +8,32 @@ const carrito = []
 //     carrito = carritoEnLS
 // }
 
-function agregarAlCarrito(itemId) {
+// === Api MP===
 
+const finalizarCompra = async () => {
 
-    let itemEnCarrito = carrito.find(el => el.item == itemId)
+    const productoMp = carrito.map ( (prod) => {
+        return {
+            title: prod.nombre,
+            description: "Dummy description",
+            picture_url: "",
+            category_id: prod.item,
+            quantity: prod.cantidad,
+            currency_id: "ARS",
+            unit_price: prod.precio 
+        }
+    })
+    
+    fetch(url, {
+        method:`POST`,
+        headers: {
+            Authorization: `Bearer TEST-1798136906201393-092723-253789fa0237b6302f09005006f4296a-86270132`,
 
-
-    if (itemEnCarrito) {
-        itemEnCarrito.cantidad += 1
-    } else {
-        
-        const {item, nombre, precio} = stockProductos.find( el => el.item == itemId )
-
-        carrito.push({item: item, nombre: nombre, precio: precio, cantidad: 1})
-    }
+        },            
+        body: {
+            items: [{
+                
+            }]
+        }
+    })
 }

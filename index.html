@@ -28,7 +28,7 @@
   </head>
 
   <body>
-    <header>
+    <header id="header" class="header">
       <div class="container-fluid">  
         <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
           <div class="container-fluid">
@@ -60,13 +60,11 @@
                   <a class="nav-link" href="html/contacto.html">Contacto</a>
                 </li>
               </ul>
-              <div class="d-flex">
+              <div class="d-flex"><button id="btn-dark" type="button" class="btn btn-dark">Dark</button>
                 <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Busca categorias" aria-label="Search">
               <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
-              </div>
-              
+              </div>              
             </div>
-
           </div>
         </nav>
       </div>
@@ -75,13 +73,13 @@
     <div id="resultado" class="row"></div>
       
     <div id="letras" class="container-fluid" ><p>Dale a tu casa <br> la seguridad que <br>tu familia necesita </p></div>
-    <img src="images/flia3.jpeg" class="img-fluid" alt="flia3">   
+    <img id="foto" src="images/flia3.jpeg" class="img-fluid" alt="flia3">   
     
     <div id="contenedorinicio" class="row"></div>
     
     
     
-    <div id="footer" class="container-fluid">
+    <div id="footer" class="footer container-fluid">
       <footer>
         <ul id="social" >
           <li><a href="#"><img id="idwhat" src="icons/what.png" height="50px" ></img></a></li>
@@ -95,7 +93,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="js/stock.js"></script> -->
     <script src="js/inicio.js"></script>
-    <!-- <script src="js/main.js"></script> -->
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
   </body>
   

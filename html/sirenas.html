@@ -20,7 +20,7 @@
     <title>Sirenas</title>
   </head>
   <body>
-    <header>
+    <header id="header" class="header">
       <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html">
@@ -51,23 +51,36 @@
                 <a class="nav-link" href="contacto.html">Contacto</a>
               </li>
             </ul>
-            <div class="d-flex">
+            <div class="d-flex"><button id="btn-dark" type="button" class="btn btn-dark">Dark</button>
               <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Buscador de productos" aria-label="Search">
             <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
-            </div>
-           
+            </div>           
           </div>
-
         </div>
       </nav>
-
-    </header>  
+    </header>
         
     <!-- Boton modal -->
 
     <div class="container-fluid text-center bg-secondary p-4">
       <button type="button" class="btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">      Carrito     <i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
     </div>
+
+    <!-- Botones Link -->
+
+    <div id="botonesgris" class="container-fluid">
+      <div class="row p-4 text-center  bg-secondary">          
+          <div class="col-4">
+              <a href="panelesyteclado.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Paneles y Teclados</button></a>
+          </div>
+          <div class="col-4">
+              <a href="comunicadores.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Comunicadores</button></a>
+          </div>
+          <div class="col-4">
+              <a href="sensores.html"><button class="btn btn-primary btn-primary-outline-success" type="button">Sensores</button></a>
+          </div>
+      </div>
+    </div> 
 
     <!-- Modal -->
 
@@ -79,11 +92,23 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div id="listado" ></div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody id="listado">
+      
+              </tbody>
+            </table>
             <div> Total: $<span id="precioTotal" >0</span> </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="terminar" data-bs-dismiss="modal">Terminar la compra</button>
+            <button type="button" class="btn btn-secondary" id="terminar" data-bs-dismiss="modal" onclick="finalizarCompra()">Terminar compra</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
             <button type="button" class="btn btn-danger" id="vaciar" onclick="vaciar()">Vaciar Carrito</button>
           </div>
@@ -92,14 +117,14 @@
     </div>
     
     
-    <div id="sire" class=" text-center">
+    <div class="sire text-center">
       <div class="display-1 mb-3">Sirenas</div>          
       <div id ="resultado" class="row text-center cointainer-fluid "></div>   
       <!-- <div id ="contenerdorsire" class="row text-center cointainer-fluid "></div>    -->
     </div>
     
     
-    <div id="footer" class="container-fluid" >
+    <div id="footer" class="footer container-fluid" >
       <footer>
         <ul id="social" >
           <li><a href="#"><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>

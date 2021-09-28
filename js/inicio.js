@@ -108,10 +108,35 @@ $(`#footer`).fadeIn(4000)
 
 // Animacion Parrafo 
 
-$('#letras').animate({
-        "opacity": "1",
-        "font-size": "50px"
+function myFunction(x) {
+    if (x.matches) { // If media query matches
+        $('#letras').animate({
+            "opacity": "1",
+            "font-size": "20px"
     }, 2000)
+    } else {
+        $('#letras').animate({
+            "opacity": "1",
+            "font-size": "50px"
+    }, 2000)
+    }
+  }
+  
+  var x = window.matchMedia("(max-width: 700px)")
+  myFunction(x) // Call listener function at run time
+  x.addListener(myFunction) // Attach listener function on state changes
+
+//   Foto del parrafo 
+
+
+
+$('#btn-dark').on('click', function cambiarImagenJS(){
+    document.getElementById("foto").src="./images/flia_dark.png";
+    $("#header").addClass("headerDark");
+    $("#footer").addClass("footerDark");
+
+})
+
 
 // Buscador
 
@@ -122,47 +147,47 @@ $('#btn-buscar').on('click', () => {
     
     switch (busquedaMinuscula) {
         case "comunicador":
-            window.location.href="comunicadores.html"
+            window.location.href="html/comunicadores.html"
         break;
 
         case "comunicadores":
-            window.location.href="comunicadores.html"
+            window.location.href="html/comunicadores.html"
         break;
 
         case "paneles":
-            window.location.href="panelesyteclado.html"
+            window.location.href="html/panelesyteclado.html"
         break;
 
         case "panel":
-            window.location.href="panelesyteclado.html"
+            window.location.href="html/panelesyteclado.html"
         break;
 
         case "teclados":
-            window.location.href="panelesyteclado.html"
+            window.location.href="html/panelesyteclado.html"
         break;
 
         case "teclado":
-            window.location.href="panelesyteclado.html"
+            window.location.href="html/panelesyteclado.html"
         break;
 
         case "paneles y teclados":
-            window.location.href="panelesyteclado.html"
+            window.location.href="html/panelesyteclado.html"
         break;
 
         case "sensores":
-            window.location.href="sensores.html"
+            window.location.href="html/sensores.html"
         break;
 
         case "sensor":
-            window.location.href="sensores.html"
+            window.location.href="html/sensores.html"
         break;
 
         case "sirenas":
-            window.location.href="sirenas.html"
+            window.location.href="html/sirenas.html"
         break;
 
         case "sirena":
-            window.location.href="sirenas.html"
+            window.location.href="html/sirenas.html"
         break;
 
     default:

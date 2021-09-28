@@ -90,7 +90,6 @@ const boton = document.getElementById("btn-buscar")
 
 const buscar = () => {
     resultado.innerHTML = ``
-    // contenerdorcomu.innerHTML = ``
     const texto = busqueda.value.toLowerCase()
     for (let producto of sirenas){
         let nombre = producto.nombre.toLowerCase()
@@ -104,7 +103,7 @@ const buscar = () => {
                     <img src="${producto.img}" class="img-fluid" alt="...">
                         <div class="card-body">
                         <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">${producto.desc}<br><div class="h2">$${producto.precio}</div><br><div class="h6">(Stock: ${producto.stock})</div></p>
+                        <p class="card-text">${producto.desc}<br><br><div class="h2">$${producto.precio}</div></p>                
                         <a  class="btn btn-success" id="boton" onclick="carga(${producto.item})">Agregar al carrito</a>
                         </div>
                     </div>
@@ -127,3 +126,7 @@ $("#input-busqueda").keyup(function(event) {
 });
 
 buscar()
+
+// Stock Oculto 
+
+{/* <div class="h6">(Stock: ${producto.stock})</div> */}

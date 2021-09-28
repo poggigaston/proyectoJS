@@ -90,3 +90,11 @@ $("#input-busqueda").keyup(function(event) {
         $("#btn-buscar").click();
     }
 });
+
+// Modo Dark
+
+$('#btn-dark').on('click', function (){    
+    $("#header").addClass("headerDark");
+    $("#footer").addClass("footerDark");
+    $(".form-control").addClass("formuDark");
+})

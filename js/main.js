@@ -39,7 +39,7 @@ function carga(number) {
         })
     } else {
         let filtrado = productos.find( (el) => el.item == number );        
-        carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, img: filtrado.img, cantidad: 1});
+        carrito.push ({item: filtrado.item, nombre: filtrado.nombre, precio: filtrado.precio, desc: filtrado.desc, img: filtrado.img, cantidad: 1});
         Swal.fire({
             title: 'Genial!',
             text: "El producto "+ filtrado.nombre + " se agrego correctamente al carrito",
@@ -72,34 +72,29 @@ function descarga (prod) {
 
 // Para sumar el total de los elementos del carrito
 
-function sumar(){
+function sumar(){    
     carrito.forEach ( (el) => {
-        precioTotal += el.precio * el.cantidad
+        precioTotal += el.precio * el.cantidad        
     })    
 }
          
 
-// Actualizar
+// Actualizar elementos del Carrito
 
 function actualizar () {    
     let listado = document.getElementById(`listado`)
     listado.innerHTML = ` `
         
     carrito.forEach ((producto) => {
-        // const div = document.createElement('div')        
         
-        // div.innerHTML = ` <p id="fade" >${producto.nombre} Valor $${producto.precio} Cantidad ${producto.cantidad}    <button onclick=descarga(${producto.item}) class="boton-eliminar" ><i class="fas fa-trash-alt"></i></button></p>`;
-
         const tr = document.createElement('tr')
         tr.className = "table"
         tr.innerHTML = `
             <th scope="row">${producto.item}</th>
             <td>${producto.nombre}</td>
             <td>${producto.cantidad}   <button onclick=descarga(${producto.item}) class="boton-eliminar" ><i class="fas fa-trash-alt"></i></button></td>
-            <td>$${producto.precio}</td>
-            
-        `
-        
+            <td>$${producto.precio}</td>            
+            `        
         listado.appendChild(tr);       
     })
 
@@ -132,7 +127,7 @@ function vaciar (){
 }
 actualizar()
 
-// Logos redes sociales
+// Animacion Logos redes sociales
 
 $('#idwhat').mouseenter (function () {
     $("#idwhat").addClass("animate__animated animate__rubberBand") 
@@ -155,78 +150,61 @@ $('#idinsta').mouseleave (function () {
     $("#idinsta").removeClass("animate__animated animate__rubberBand") 
 })
 
-// Buscador
-// const busqueda = getElementById("input-busqueda")
-// const boton = getElementById("btn-buscar")
 
-// const buscar = () => {
-//     console.log(busqueda.value)
-// }
+// === Api MP===
 
-
-// $('#btn-buscar').on('click', () => {
-//     const busquedaMinuscula = busqueda.toLowerCase()
-
-//     const busqueda = $('#input-busqueda').val()
-//     const busquedaMinuscula = busqueda.toLowerCase()
+const finalizarCompra = async () => {
     
-//     switch (busquedaMinuscula) {
-//         case "comunicador":
-//             window.location.href="comunicadores.html"
-//         break;
+    if (carrito.length != 0 ) {
+        const productoMp = carrito.map ( (prod) => {
+            return {
+                title: prod.nombre,
+                description: prod.desc,
+                picture_url: "",
+                category_id: prod.item,
+                quantity: prod.cantidad,
+                currency_id: "ARS",
+                unit_price: prod.precio 
+            }
+        })
+        
+        const resp = await fetch( `https://api.mercadopago.com/checkout/preferences`, {
+                        method:`POST`,
+                        headers: {
+                            Authorization: `Bearer TEST-1798136906201393-092723-253789fa0237b6302f09005006f4296a-86270132`,
+    
+                        },            
+                        body: JSON.stringify({
+                                items: productoMp                                                               
+                        })                    
+                    })
+    
+        const data = await resp.json()
+        window.open(data.init_point)
+    }else {
+        Swal.fire({
+            position: 'center',  
+            icon: 'error',            
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutDown'
+            },
+            title: 'Ooops...',
+            text: 'El carrito esta vacio!',
+            showConfirmButton: false,
+            timer: 2500
+          })
+    }
+}
 
-//         case "comunicadores":
-//             window.location.href="comunicadores.html"
-//         break;
+// Modo Dark
 
-//         case "paneles":
-//             window.location.href="panelesyteclado.html"
-//         break;
-
-//         case "panel":
-//             window.location.href="panelesyteclado.html"
-//         break;
-
-//         case "teclados":
-//             window.location.href="panelesyteclado.html"
-//         break;
-
-//         case "teclado":
-//             window.location.href="panelesyteclado.html"
-//         break;
-
-//         case "paneles y teclados":
-//             window.location.href="panelesyteclado.html"
-//         break;
-
-//         case "sensores":
-//             window.location.href="sensores.html"
-//         break;
-
-//         case "sensor":
-//             window.location.href="sensores.html"
-//         break;
-
-//         case "sirenas":
-//             window.location.href="sirenas.html"
-//         break;
-
-//         case "sirena":
-//             window.location.href="sirenas.html"
-//         break;
-
-//     default:
-//         busqueda != "comunicador", "comunicadores", "paneles y teclados", "paneles", "panel", "teclados" ,"teclado" ,"sirenas" ,"sensores"
-//             alert("No ingresaste una categoria válida, chau")
-//         break;    
-
-//     }
-// })
-
-// Enter para buscar
-
-// $("#input-busqueda").keyup(function(event) {
-//     if (event.keyCode === 13) {
-//         $("#btn-buscar").buscar();
-//     }
-// });
+$('#btn-dark').on('click', function (){    
+    $("#header").addClass("headerDark");
+    $("#footer").addClass("footerDark");
+    $(".card").addClass("imagenesDark");
+    $(".senso").addClass("sensoDark");
+    $(".comu").addClass("comuDark");
+    $(".sire").addClass("sireDark");
+    $(".panytec").addClass("panytecDark");
+    $(".form-control").addClass("formuDark");
+})

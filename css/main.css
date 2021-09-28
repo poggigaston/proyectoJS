@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }
+
 html {
     margin: 0;
     padding: 0;
@@ -54,10 +58,13 @@ html {
     padding-bottom: 35px;
 }
 
-header {
+.header {
     background-color: #02acc7 ;
+    margin: 0px;    
+}
+.headerDark {
+    background-color: #144850 ;
     margin: 0px;
-    
 }
 
 
@@ -76,33 +83,58 @@ header {
     padding-top: 10%;
 }
 
-#panytec {
+.panytec {
     background-color: #2d436f;    
 }
+.panytecDark {
+    background-color: #20335a;    
+}
 
 
-#comu {
+.comu {
     background-color: #81cc76;
 }
-
-#senso {
-    background-color: #f5db57;
-
+.comuDark {
+    background-color: #3d7735;
 }
 
-#sire  {
+.senso {
+    background-color: #f5db57;
+}
+.sensoDark {
+    background-color: #534810;
+}
+
+.sire  {
     background-color: #e16453;
+    margin-bottom: 30px;
+}
+.sireDark  {
+    background-color: #7a3c34;
     margin-bottom: 30px;
 }
 
 
-#footer{
+.footer{
     position: fixed;
     bottom: 0px;
     background-color: #02acc7;
     height: 50px;    
 }
+.footerDark {
+    position: fixed;
+    bottom: 0px;
+    background-color: #144850;
+    height: 50px; 
+}
 
+.imagenesDark {
+    background: rgb(0, 0, 0);
+}
+
+.formuDark {
+    background-color: black;
+}
 
 #social {
     list-style: none;
@@ -120,9 +152,6 @@ body {
 
 
 @media (max-width: 500px) { 
-    #botonesgris { display: none;}
- }
+    #botonesgris { display: none;}    
+}
 
-/* .mt-n1 {
-    margin-top: -0.0rem !important;
-  } */
