@@ -5,8 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <!-- Animate.css  -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Animate.css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Fontawesome.com  -->
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -21,7 +26,7 @@
                 <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="/index.html">
-                            <span id="colortitulo" class="fs-5 text-light fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
+                            <span id="colortitulo" class="fs-5 fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -48,26 +53,32 @@
                                 <a class="nav-link" href="contacto.html">Contacto</a>
                                 </li>
                             </ul>
-                            <div class="d-flex"><button id="btn-dark" type="button" class="btn btn-dark">Dark</button>
+                            <button class="switch" id="switch">
+                                <span><i class="fas fa-sun"></i></span>
+                                <span><i class="fas fa-moon"></i></span>
+                              </button>
+                            <div class="d-flex">
                                 <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Buscador de categorias" aria-label="Search">
                               <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
-                            </div>
-                            
+                            </div>                            
                         </div>
-
                     </div>
                 </nav>
             </div>
         </header>  
     
-                   
-        <div class="formu container-fluid row ">
-            <div class="mb-2 p-4">
-                <label for="exampleFormControlInput1" class="form-label">Correo Electronico</label>
-                <input type="email" class="form-control" id="miForm" placeholder="ejemplo@ejemplo.com">
+        <!-- Formulario            -->
+
+
+        <div>            
+            <div class="mb-2 p-4 emailBox">
+                <label for="emailAddress" class="form-label">Correo Electronico (Se pondra de color verde si es valido)</label>
+                <input type="email" class="form-control" id="miForm" placeholder="ejemplo@ejemplo.com" required>
+                <span id="emailOK"></span>
             </div>
+            
             <div class="mb-2 p-4">
-                <label for="exampleFormControlTextarea1" class="form-label">Deje su comentario</label>
+                <label for="FormControl" class="form-label">Deje su comentario</label>
                 <textarea class="form-control" id="miForm2" rows="8"></textarea>
             </div>
             <div class="container-fluid text-center">
@@ -75,18 +86,39 @@
             </div>
         </div>            
                       
+        <!-- Footer  -->
+
         <div id="footer" class="footer container-fluid" >
             <footer>
-                <ul id="social" >
-                    <li><a href="#"><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>
-                    <li><a href="#"><img id="idface" src="/icons/face.png" height="50px" ></img></a></li>
-                    <li><a href="#"><img id="idinsta" src="/icons/insta.png" height="50px" ></img></a></li>                
-                </ul>              
+            <ul id="social" >
+                <li><a href="https://web.whatsapp.com/" target="_blank" ><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>
+                <li><a href="https://es-la.facebook.com/" target="_blank"><img id="idface" src="/icons/face.png" height="50px" ></img></a></li>
+                <li><a href="https://www.instagram.com/?hl=es" target="_blank"><img id="idinsta" src="/icons/insta.png" height="50px" ></img></a></li>         
+            </ul>        
             </footer>
-        </div> 
+        </div>
+      
+        <!-- Links -->
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="/js/contacto.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     </body>
 </html>
+
+<!-- <form>
+    <div class="emailBox">
+      <label for="emailAddress">Tu dirección de correoᵉ</label><br>
+      <input id="emailAddress" type="email" size="64" maxLength="64" required
+             placeholder="nombreusuario@beststartupever.com" pattern=".+@beststartupever.com"
+             title="Por favor, solo proporciona una dirección de correoᵉ corporativa que te haya proporcionado Best Startup Ever">
+    </div>
+   
+    <div class="messageBox">
+      <label for="message">Solicitud</label><br>
+      <textarea id="message" cols="80" rows="8" required
+                placeholder="Mis zapatos están demasiado apretados y he olvidado cómo bailar."></textarea>
+    </div>
+     <input type="submit" value="Envía solicitud">
+   </form> -->
+   

@@ -31,7 +31,7 @@
                 <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="/index.html">
-                            <span id="colortitulo" class="fs-5 text-light fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
+                            <span id="colortitulo" class="fs-5 fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -58,7 +58,11 @@
                                 <a class="nav-link" href="contacto.html">Contacto</a>
                                 </li>
                             </ul>
-                            <div class="d-flex"><button id="btn-dark" type="button" class="btn btn-dark">Dark</button>
+                            <button class="switch" id="switch">
+                                <span><i class="fas fa-sun"></i></span>
+                                <span><i class="fas fa-moon"></i></span>
+                              </button>
+                            <div class="d-flex">
                                 <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Buscador de categorias" aria-label="Search">
                               <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
                             </div>
@@ -73,20 +77,22 @@
             <img id="opaco" src="/images/flia4.jpg" class="img-fluid" alt="flia4">                    
         </div>
 
-        <img src="/images/Nosotros.jpg" class="img-fluid p-3 mb-4" alt="Nosotros">
+        <img src="/images/Nosotros.jpg" class="img-fluid mb-4" alt="Nosotros">
         
         
+        <!-- Footer  -->
+
         <div id="footer" class="footer container-fluid" >
             <footer>
-                <ul id="social" >
-                    <li><a href="#"><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>
-                    <li><a href="#"><img id="idface" src="/icons/face.png" height="50px" ></img></a></li>
-                    <li><a href="#"><img id="idinsta" src="/icons/insta.png" height="50px" ></img></a></li>
-                
-                </ul>
-              
+            <ul id="social" >
+                <li><a href="https://web.whatsapp.com/" target="_blank" ><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>
+                <li><a href="https://es-la.facebook.com/" target="_blank"><img id="idface" src="/icons/face.png" height="50px" ></img></a></li>
+                <li><a href="https://www.instagram.com/?hl=es" target="_blank"><img id="idinsta" src="/icons/insta.png" height="50px" ></img></a></li>         
+            </ul>        
             </footer>
         </div>
+        
+        <!-- Links -->
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="/js/nosotros.js"></script>

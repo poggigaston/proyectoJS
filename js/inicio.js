@@ -109,7 +109,7 @@ $(`#footer`).fadeIn(4000)
 // Animacion Parrafo 
 
 function myFunction(x) {
-    if (x.matches) { // If media query matches
+    if (x.matches) { // Si encuentra media query 
         $('#letras').animate({
             "opacity": "1",
             "font-size": "20px"
@@ -120,23 +120,11 @@ function myFunction(x) {
             "font-size": "50px"
     }, 2000)
     }
-  }
+}
   
-  var x = window.matchMedia("(max-width: 700px)")
-  myFunction(x) // Call listener function at run time
-  x.addListener(myFunction) // Attach listener function on state changes
-
-//   Foto del parrafo 
-
-
-
-$('#btn-dark').on('click', function cambiarImagenJS(){
-    document.getElementById("foto").src="./images/flia_dark.png";
-    $("#header").addClass("headerDark");
-    $("#footer").addClass("footerDark");
-
-})
-
+let x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
 
 // Buscador
 
@@ -204,3 +192,30 @@ $("#input-busqueda").keyup(function(event) {
         $("#btn-buscar").click();
     }
 });
+
+// Boton modo Oscuro
+
+const btnSwitch = document.querySelector('#switch');
+
+btnSwitch.addEventListener('click', () => {
+	document.body.classList.toggle('dark');
+	btnSwitch.classList.toggle('active');
+
+	// Guardamos el modo en localstorage.
+	if(document.body.classList.contains('dark')){
+		localStorage.setItem('dark-mode', 'true');
+	} else {
+		localStorage.setItem('dark-mode', 'false');
+	}
+});
+
+// Obtenemos el modo actual.
+if(localStorage.getItem('dark-mode') === 'true'){
+	document.body.classList.add('dark');
+	btnSwitch.classList.add('active');
+} else {
+	document.body.classList.remove('dark');
+	btnSwitch.classList.remove('active');
+}
+
+

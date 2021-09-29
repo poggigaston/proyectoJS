@@ -33,7 +33,7 @@
         <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <span id="colortitulo" class="fs-5 text-light fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
+                <span id="colortitulo" class="fs-5 fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,11 @@
                   <a class="nav-link" href="html/contacto.html">Contacto</a>
                 </li>
               </ul>
-              <div class="d-flex"><button id="btn-dark" type="button" class="btn btn-dark">Dark</button>
+              <button class="switch" id="switch">
+                <span><i class="fas fa-sun"></i></span>
+                <span><i class="fas fa-moon"></i></span>
+              </button>
+              <div class="d-flex">
                 <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Busca categorias" aria-label="Search">
               <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
               </div>              
@@ -75,11 +79,11 @@
     <div id="letras" class="container-fluid" ><p>Dale a tu casa <br> la seguridad que <br>tu familia necesita </p></div>
     <img id="foto" src="images/flia3.jpeg" class="img-fluid" alt="flia3">   
     
-    <div id="contenedorinicio" class="row"></div>
+    
+    <div id="contenedorinicio" class="row"></div>    
     
     
-    
-    <div id="footer" class="footer container-fluid">
+    <div id="footer" class="container-fluid">
       <footer>
         <ul id="social" >
           <li><a href="#"><img id="idwhat" src="icons/what.png" height="50px" ></img></a></li>

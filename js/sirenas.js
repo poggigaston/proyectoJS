@@ -5,7 +5,7 @@ const sirenas = [
         tipo: "SIRENA EXTERIOR",
         stock: 100,
         "precio": 5000,
-        img: "/images/Sirenas/MP-300.png",
+        img: "/images/Sirenas/MP-300.jpg",
         desc: "Sirena Exterior magnetodinámica con Flash."
     },
     {
@@ -14,7 +14,7 @@ const sirenas = [
         tipo: "SIRENA INTERIOR",
         stock: 100,
         "precio": 4000,
-        img: "/images/Sirenas/MP-150.png",
+        img: "/images/Sirenas/MP-150.jpg",
         desc: "Sirena Exterior magnetodinámica."
     },
     {
@@ -23,7 +23,7 @@ const sirenas = [
         tipo: "SIRENA EXTERIOR",
         stock: 100,
         precio: 4200,
-        img: "/images/Sirenas/MP-200.png",
+        img: "/images/Sirenas/MP-200.jpg",
         desc: "Sirena Exterior doble Piezoeléctrica."        
     }
 ]

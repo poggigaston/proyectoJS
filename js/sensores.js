@@ -6,7 +6,7 @@ const sensores = [
         tipo: "SENSOR CABLEADO",
         stock: 100,
         precio: 3500,
-        img: "/images/Sensores/IR-808.png",
+        img: "/images/Sensores/IR-808.jpg",
         desc: "Detector infrarrojo de interior. Inmunidad a mascotas 18Kg."
     },
     {
@@ -15,7 +15,7 @@ const sensores = [
         tipo: "SENSOR INALAMBRICO",
         stock: 100,
         precio: 4500,
-        img: "/images/Sensores/DGW-500.png",
+        img: "/images/Sensores/DGW-500.jpg",
         desc: "Digi Wireless. Detector infrarrojo pasivo digital inalámbrico."
     },
     {
@@ -24,7 +24,7 @@ const sensores = [
         tipo: "SENSOR INALAMBRICO",
         stock: 100,
         precio: 5000,
-        img: "/images/Sensores/DGB-2-PET.png",
+        img: "/images/Sensores/DGB-2-PET.jpg",
         desc: "Digi Wireless. Detector infrarrojo pasivo digital inalámbrico. Inmunidad a mascotas 18kg."
     },
     {
@@ -33,7 +33,7 @@ const sensores = [
         tipo: "SENSOR CABLEADO",
         stock: 100,
         precio: 3000,
-        img: "/images/Sensores/IR-1000.png",
+        img: "/images/Sensores/IR-1000.jpg",
         desc: "Detector doble infrarrojo para exteriores, cableado."
     }
 ]

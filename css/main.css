@@ -5,9 +5,18 @@
 }
 
 body {
-    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-  }
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: rgba(220, 220, 220, 0.856);
+    transition: .8s ease all;
+}
 
+
+body.dark{
+    background-color: gray;
+}
+body.dark .card-body{
+    background-color: gray;
+}
 html {
     margin: 0;
     padding: 0;
@@ -62,15 +71,34 @@ html {
     background-color: #02acc7 ;
     margin: 0px;    
 }
-.headerDark {
+body.dark .header {
     background-color: #144850 ;
     margin: 0px;
 }
 
-
+#colortitulo {
+    color: white;
+}
+body.dark #colortitulo {
+    color: gray;
+}
+body.dark #colortitulo :hover {
+    color: rgb(158, 156, 156);
+}
+body.dark #colorboton {
+     color: rgb(140, 140, 145);
+ }
 .bn {
     filter: grayscale(10);
-    transition-delay: 0.5;
+    transition-delay: 0.8;
+}
+body.dark .bn {
+    filter: grayscale(10) brightness(80%);
+    transition-delay: 0.8;
+}
+
+body.dark img {
+    filter: brightness(60%);    
 }
 
 #letras {
@@ -82,57 +110,65 @@ html {
     color: white;
     padding-top: 10%;
 }
-
-.panytec {
-    background-color: #2d436f;    
+body.dark #letras {
+    color: gray;
+    z-index:10;
 }
-.panytecDark {
+
+#panytec {
+    background-color: #2d436f;
+    color: black;  
+}
+body.dark #panytec {
     background-color: #20335a;    
 }
 
 
-.comu {
+#comu {
     background-color: #81cc76;
 }
-.comuDark {
+body.dark #comu {
     background-color: #3d7735;
 }
 
-.senso {
+#senso {
     background-color: #f5db57;
 }
-.sensoDark {
+body.dark #senso {
     background-color: #534810;
 }
 
-.sire  {
+#sire  {
     background-color: #e16453;
     margin-bottom: 30px;
 }
-.sireDark  {
+body.dark #sire  {
     background-color: #7a3c34;
     margin-bottom: 30px;
 }
 
+body.dark .formu {
+    background: gray;
+}
 
-.footer{
+#footer{
     position: fixed;
     bottom: 0px;
     background-color: #02acc7;
     height: 50px;    
 }
-.footerDark {
+body.dark #footer {
     position: fixed;
     bottom: 0px;
     background-color: #144850;
     height: 50px; 
 }
 
-.imagenesDark {
+/* .imagenesDark {
     background: rgb(0, 0, 0);
-}
+} */
 
-.formuDark {
+body.dark .form-control{
     background-color: black;
 }
 
@@ -146,10 +182,52 @@ html {
     margin: o;    
 }
 
-body {
-    background-color: rgba(220, 220, 220, 0.856);
-}
 
+/* -----BOTON DARK ------*/
+
+.switch {
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;    
+    display: flex;
+    outline: none;
+}
+  
+.switch::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;    
+    transition: .8s ease all;    
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+  
+.switch.active {
+    background: orange;
+    color: #000;
+}
+  
+  .switch.active::after {
+    right: 0;
+    left: unset;
+}
+  
+  .switch span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+}
 
 @media (max-width: 500px) { 
     #botonesgris { display: none;}    

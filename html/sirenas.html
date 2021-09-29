@@ -24,7 +24,7 @@
       <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html">
-              <span id="colortitulo" class="fs-5 text-light fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
+              <span id="colortitulo" class="fs-5 fw-bold"><h1>FamiliaSeguraAlarmas</h1></span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,11 @@
                 <a class="nav-link" href="contacto.html">Contacto</a>
               </li>
             </ul>
-            <div class="d-flex"><button id="btn-dark" type="button" class="btn btn-dark">Dark</button>
+            <button class="switch" id="switch">
+              <span><i class="fas fa-sun"></i></span>
+              <span><i class="fas fa-moon"></i></span>
+            </button>
+            <div class="d-flex">
               <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Buscador de productos" aria-label="Search">
             <button id="btn-buscar" class="btn btn-outline-primary" type="submit">Buscar</button>
             </div>           
@@ -63,7 +67,7 @@
     <!-- Boton modal -->
 
     <div class="container-fluid text-center bg-secondary p-4">
-      <button type="button" class="btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">      Carrito     <i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+      <button id="colorboton" type="button" class="btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">      Carrito     <i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
     </div>
 
     <!-- Botones Link -->
@@ -71,13 +75,13 @@
     <div id="botonesgris" class="container-fluid">
       <div class="row p-4 text-center  bg-secondary">          
           <div class="col-4">
-              <a href="panelesyteclado.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Paneles y Teclados</button></a>
+              <a href="panelesyteclado.html"><button id="colorboton" class="btn btn-primary btn-primary-outline-success" type="button"  >Paneles y Teclados</button></a>
           </div>
           <div class="col-4">
-              <a href="comunicadores.html"><button class="btn btn-primary btn-primary-outline-success" type="button"  >Comunicadores</button></a>
+              <a href="comunicadores.html"><button id="colorboton" class="btn btn-primary btn-primary-outline-success" type="button"  >Comunicadores</button></a>
           </div>
           <div class="col-4">
-              <a href="sensores.html"><button class="btn btn-primary btn-primary-outline-success" type="button">Sensores</button></a>
+              <a href="sensores.html"><button id="colorboton" class="btn btn-primary btn-primary-outline-success" type="button">Sensores</button></a>
           </div>
       </div>
     </div> 
@@ -101,8 +105,7 @@
                   <th scope="col">Precio</th>
                 </tr>
               </thead>
-              <tbody id="listado">
-      
+              <tbody id="listado">      
               </tbody>
             </table>
             <div> Total: $<span id="precioTotal" >0</span> </div>
@@ -116,25 +119,27 @@
       </div>
     </div>
     
-    
-    <div class="sire text-center">
+   <!-- Cards de Productos   -->
+
+    <div id="sire" class="text-center">
       <div class="display-1 mb-3">Sirenas</div>          
-      <div id ="resultado" class="row text-center cointainer-fluid "></div>   
-      <!-- <div id ="contenerdorsire" class="row text-center cointainer-fluid "></div>    -->
+      <div id ="resultado" class="row text-center cointainer-fluid "></div>     
     </div>
     
     
+    <!-- Footer  -->
+
     <div id="footer" class="footer container-fluid" >
       <footer>
         <ul id="social" >
-          <li><a href="#"><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>
-          <li><a href="#"><img id="idface" src="/icons/face.png" height="50px" ></img></a></li>
-          <li><a href="#"><img id="idinsta" src="/icons/insta.png" height="50px" ></img></a></li>
-         
-        </ul>
-        
+          <li><a href="https://web.whatsapp.com/" target="_blank" ><img id="idwhat" src="/icons/what.png" height="50px" ></img></a></li>
+          <li><a href="https://es-la.facebook.com/" target="_blank"><img id="idface" src="/icons/face.png" height="50px" ></img></a></li>
+          <li><a href="https://www.instagram.com/?hl=es" target="_blank"><img id="idinsta" src="/icons/insta.png" height="50px" ></img></a></li>         
+        </ul>        
       </footer>
     </div>
+    
+    <!-- Links -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- <script src="/js/stock.js"></script> -->

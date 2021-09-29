@@ -1,7 +1,39 @@
+// Focus en el primer input 
+
 $(document).ready(()=>{
     $('#miForm').trigger('focus')
 })
 
+// Enter para pasar el segundo input 
+
+document.getElementById('miForm').addEventListener('keydown', entrada);
+
+function entrada(event) {
+ 
+  if (event.keyCode == 13) {
+    document.getElementById('miForm2').focus();
+  }
+}
+
+// Validar Email 
+
+document.getElementById('miForm').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+        $('#miForm').css("color", "green")
+    //   valido.innerText = "válido";
+    } else {
+        $('#miForm').css("color", "red")
+    //   valido.innerText = "incorrecto";
+    }
+});
+
+
+// Animacion de Iconos del Footer 
 
 $('#idwhat').mouseenter (function () {
     $("#idwhat").addClass("animate__animated animate__rubberBand") 
@@ -96,11 +128,28 @@ $("#input-busqueda").keyup(function(event) {
     }
 });
 
-// Modo Dark
 
-$('#btn-dark').on('click', function (){    
-    $("#header").addClass("headerDark");
-    $("#footer").addClass("footerDark");
-    $(".formu").addClass("formuDark");
-    $(".form-control").addClass("formuDark");
-})
+// Boton modo Oscuro
+
+const btnSwitch = document.querySelector('#switch');
+
+btnSwitch.addEventListener('click', () => {
+	document.body.classList.toggle('dark');
+	btnSwitch.classList.toggle('active');
+
+	// Guardamos el modo en localstorage.
+	if(document.body.classList.contains('dark')){
+		localStorage.setItem('dark-mode', 'true');
+	} else {
+		localStorage.setItem('dark-mode', 'false');
+	}
+});
+
+// Obtenemos el modo actual.
+if(localStorage.getItem('dark-mode') === 'true'){
+	document.body.classList.add('dark');
+	btnSwitch.classList.add('active');
+} else {
+	document.body.classList.remove('dark');
+	btnSwitch.classList.remove('active');
+}
