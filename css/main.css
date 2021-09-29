@@ -72,7 +72,7 @@ html {
     margin: 0px;    
 }
 body.dark .header {
-    background-color: #144850 ;
+    background-color: #030c0e ;
     margin: 0px;
 }
 
@@ -80,7 +80,7 @@ body.dark .header {
     color: white;
 }
 body.dark #colortitulo {
-    color: gray;
+    color: gray;    
 }
 body.dark #colortitulo :hover {
     color: rgb(158, 156, 156);
@@ -92,11 +92,31 @@ body.dark #colorboton {
     filter: grayscale(10);
     transition-delay: 0.8;
 }
+
+/* Header  */
+
+.nav-link {
+    color: black;
+}
+body.dark #inicionav {
+    color: rgb(183, 185, 201);
+}
+body.dark #productosnav {
+    color: rgb(183, 185, 201);
+}
+body.dark #nosotrosnav {
+    color: rgb(183, 185, 201);
+}
+body.dark #contactonav {
+    color: rgb(183, 185, 201);
+}
+
 body.dark .bn {
     filter: grayscale(10) brightness(80%);
     transition-delay: 0.8;
 }
-
+ /* Imagen inicio */
+ 
 body.dark img {
     filter: brightness(60%);    
 }
@@ -114,6 +134,12 @@ body.dark #letras {
     color: gray;
     z-index:10;
 }
+
+/* #miForm:focus {
+    border-color: #FF0000;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+} */
+
 
 #panytec {
     background-color: #2d436f;
@@ -160,7 +186,7 @@ body.dark .formu {
 body.dark #footer {
     position: fixed;
     bottom: 0px;
-    background-color: #144850;
+    background-color: #030c0e ;
     height: 50px; 
 }
 

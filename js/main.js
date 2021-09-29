@@ -191,7 +191,7 @@ const finalizarCompra = async () => {
             text: 'El carrito esta vacio!',
             showConfirmButton: false,
             timer: 2500
-          })
+        })
     }
 }
 

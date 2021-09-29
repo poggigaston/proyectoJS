@@ -180,7 +180,17 @@ $('#btn-buscar').on('click', () => {
 
     default:
         busqueda != "comunicador", "comunicadores", "paneles y teclados", "paneles", "panel", "teclados" ,"teclado" ,"sirenas" ,"sensores"
-            alert("No ingresaste una categoria válida, chau")
+        Swal.fire({
+            position: 'center',  
+            icon: 'error',            
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutDown'
+            },
+            title: 'Ooops...',
+            text: 'La categoria ingresada no existe!',
+            showConfirmButton: false,
+            timer: 2500
+        })
         break;    
 
     }
