@@ -43,8 +43,6 @@ html {
 }
 
  .contenedor{
-    /* position: relative;
-    display: inline-block; */
     text-align: center;
 }
 
@@ -189,9 +187,7 @@ body.dark #footer {
     height: 50px; 
 }
 
-/* .imagenesDark {
-    background: rgb(0, 0, 0);
-} */
+
 
 body.dark .form-control{
     background-color: black;
