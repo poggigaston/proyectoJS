@@ -205,6 +205,10 @@ body.dark .form-control{
 
 
 /* -----BOTON DARK ------*/
+#inputBuscar {
+    margin-left: 25px;
+}
+
 
 .switch {
     background: #343D5B;
